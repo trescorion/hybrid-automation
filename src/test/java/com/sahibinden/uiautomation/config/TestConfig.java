@@ -14,5 +14,5 @@ import org.springframework.context.annotation.Configuration;
 public class TestConfig {
     
     private String baseUrl = "https://www.sahibinden.com";
-    private int cloudflareWaitTimeout = 60;
+    private int cloudflareWaitTimeout = 30;
 }

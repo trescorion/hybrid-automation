@@ -1,9 +1,9 @@
 package com.sahibinden.uiautomation.pages;
 
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+
 
 /**
  * Page Object for Sahibinden.com home page.
@@ -13,15 +13,7 @@ import org.openqa.selenium.support.FindBy;
 @Slf4j
 public class SahibindenHomePage extends BasePage {
     
-    // Page elements - using @FindBy annotations for Page Factory pattern
-    @FindBy(css = "a[title='sahibinden.com']")
-    private WebElement sahibindenLogo;
-    
-    @FindBy(id = "searchText")
-    private WebElement searchBox;
-    
-    @FindBy(css = ".main-content")
-    private WebElement mainContent;
+    public static final By YEPY_LINK = By.id("yepy-link-category-tree");
     
     private final String baseUrl;
     
@@ -165,5 +157,32 @@ public class SahibindenHomePage extends BasePage {
             return false;
         }
     }
-
+    
+    /**
+     * Generic method to click any category link by locator.
+     * Uses strict clicking approach from BasePage.
+     *
+     * Example usage:
+     *   homePage.clickCategoryLink(SahibindenHomePage.YEPY_LINK, "Yepy");
+     *   homePage.clickCategoryLink(By.linkText("Emlak"), "Emlak");
+     *
+     * @param locator By locator for the element
+     * @param linkName descriptive name for logging
+     * @throws AssertionError if click fails (UI problem)
+     */
+    public void clickCategoryLink(By locator, String linkName) {
+        clickElement(locator, linkName + " category link");
+    }
+    
+    /**
+     * Generic method to check if a category link is displayed.
+     *
+     * @param locator By locator for the element
+     * @param linkName descriptive name for logging
+     * @return true if link is visible
+     */
+    public boolean isCategoryLinkDisplayed(By locator, String linkName) {
+        return isElementDisplayed(locator, linkName + " category link");
+    }
+    
 }
