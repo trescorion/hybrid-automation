@@ -1,0 +1,422 @@
+2025-11-27 11:43:46.515 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting SahibindenCloudflareTest using Java 17.0.2 with PID 59653 (started by burak.tahmaz in /Users/burak.tahmaz/repos/ui-automation)
+2025-11-27 11:43:46.517 [Test worker] DEBUG c.s.uiautomation.tests.SahibindenCloudflareTest - Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-11-27 11:43:46.518 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-27 11:43:46.773 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Started SahibindenCloudflareTest in 0.398 seconds (process running for 1.278)
+2025-11-27 11:43:47.212 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test setup ===
+2025-11-27 11:43:47.212 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Creating WebDriver with configuration: browser=chrome, grid=false, headless=false
+2025-11-27 11:43:47.213 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Setting up Chrome driver
+2025-11-27 11:43:56.651 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Configuring WebDriver timeouts and window settings
+2025-11-27 11:43:57.038 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Browser window maximized
+2025-11-27 11:43:57.039 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver initialized successfully
+2025-11-27 11:43:57.041 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:43:57.041 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting Test #1: Cloudflare Verification
+2025-11-27 11:43:57.041 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:43:57.050 [Test worker] DEBUG com.sahibinden.uiautomation.pages.BasePage - Initialized page: SahibindenHomePage
+2025-11-27 11:43:57.050 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Initialized SahibindenHomePage with base URL: https://www.sahibinden.com
+2025-11-27 11:43:57.050 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 1: Navigating to Sahibinden.com...
+2025-11-27 11:43:57.050 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Opening Sahibinden home page: https://www.sahibinden.com
+2025-11-27 11:43:57.050 [Test worker] INFO  com.sahibinden.uiautomation.pages.BasePage - Navigating to: https://www.sahibinden.com
+2025-11-27 11:43:57.515 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 2: Checking for Cloudflare challenge...
+2025-11-27 11:43:57.528 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:43:57.528 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╔════════════════════════════════════════════════════════════╗
+2025-11-27 11:43:57.529 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  CLOUDFLARE CHALLENGE DETECTED                             ║
+2025-11-27 11:43:57.530 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  USER ACTION REQUIRED:                                     ║
+2025-11-27 11:43:57.530 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Please complete the Cloudflare verification manually      ║
+2025-11-27 11:43:57.530 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Waiting for up to 60 seconds...                           ║
+2025-11-27 11:43:57.530 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╚════════════════════════════════════════════════════════════╝
+2025-11-27 11:43:57.530 [Test worker] WARN  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification detected. Waiting for manual user interaction...
+2025-11-27 11:43:57.530 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - USER ACTION REQUIRED: Please complete the Cloudflare verification manually
+2025-11-27 11:43:57.541 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:43:57.542 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:43:58.541 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:43:58.541 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:43:59.058 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:43:59.058 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:44:01.141 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: false. URL: https://www.sahibinden.com/, Title: sahibinden.com - Türkiye'nin Online İlan ve Alışveriş Sitesi
+2025-11-27 11:44:01.142 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification completed successfully!
+2025-11-27 11:44:01.252 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Cloudflare verification completed successfully
+2025-11-27 11:44:01.253 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 3: Waiting for Sahibinden.com page to load...
+2025-11-27 11:44:01.255 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Waiting for page to load (max 30 seconds)
+2025-11-27 11:44:01.506 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Current URL: https://www.sahibinden.com/
+2025-11-27 11:44:01.601 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Page loaded successfully. Current URL: https://www.sahibinden.com/
+2025-11-27 11:44:01.601 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Page loaded successfully
+2025-11-27 11:44:01.601 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 4: Verifying navigation to actual Sahibinden.com page...
+2025-11-27 11:44:01.641 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Verifying Sahibinden page. Current URL: https://www.sahibinden.com/
+2025-11-27 11:44:01.772 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Sahibinden logo displayed: false
+2025-11-27 11:44:01.837 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test teardown ===
+2025-11-27 11:44:02.234 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver closed successfully
+2025-11-27 11:45:46.472 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting SahibindenCloudflareTest using Java 17.0.2 with PID 60902 (started by burak.tahmaz in /Users/burak.tahmaz/repos/ui-automation)
+2025-11-27 11:45:46.474 [Test worker] DEBUG c.s.uiautomation.tests.SahibindenCloudflareTest - Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-11-27 11:45:46.474 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-27 11:45:46.695 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Started SahibindenCloudflareTest in 0.336 seconds (process running for 1.045)
+2025-11-27 11:45:47.120 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test setup ===
+2025-11-27 11:45:47.120 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Creating WebDriver with configuration: browser=chrome, grid=false, headless=false
+2025-11-27 11:45:47.120 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Setting up Chrome driver
+2025-11-27 11:45:48.368 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Configuring WebDriver timeouts and window settings
+2025-11-27 11:45:48.763 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Browser window maximized
+2025-11-27 11:45:48.763 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver initialized successfully
+2025-11-27 11:45:48.764 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:45:48.764 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting Test #1: Cloudflare Verification
+2025-11-27 11:45:48.764 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:45:48.772 [Test worker] DEBUG com.sahibinden.uiautomation.pages.BasePage - Initialized page: SahibindenHomePage
+2025-11-27 11:45:48.773 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Initialized SahibindenHomePage with base URL: https://www.sahibinden.com
+2025-11-27 11:45:48.773 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 1: Navigating to Sahibinden.com...
+2025-11-27 11:45:48.773 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Opening Sahibinden home page: https://www.sahibinden.com
+2025-11-27 11:45:48.773 [Test worker] INFO  com.sahibinden.uiautomation.pages.BasePage - Navigating to: https://www.sahibinden.com
+2025-11-27 11:45:49.176 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 2: Checking for Cloudflare challenge...
+2025-11-27 11:45:49.189 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:45:49.190 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╔════════════════════════════════════════════════════════════╗
+2025-11-27 11:45:49.190 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  CLOUDFLARE CHALLENGE DETECTED                             ║
+2025-11-27 11:45:49.190 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  USER ACTION REQUIRED:                                     ║
+2025-11-27 11:45:49.190 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Please complete the Cloudflare verification manually      ║
+2025-11-27 11:45:49.190 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Waiting for up to 60 seconds...                           ║
+2025-11-27 11:45:49.190 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╚════════════════════════════════════════════════════════════╝
+2025-11-27 11:45:49.190 [Test worker] WARN  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification detected. Waiting for manual user interaction...
+2025-11-27 11:45:49.190 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - USER ACTION REQUIRED: Please complete the Cloudflare verification manually
+2025-11-27 11:45:49.199 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:45:49.199 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:45:49.848 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:45:49.848 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:45:50.361 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:45:50.361 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:45:51.779 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: false. URL: https://www.sahibinden.com/, Title: sahibinden.com - Türkiye'nin Online İlan ve Alışveriş Sitesi
+2025-11-27 11:45:51.784 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification completed successfully!
+2025-11-27 11:45:51.889 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Cloudflare verification completed successfully
+2025-11-27 11:45:51.890 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 3: Waiting for Sahibinden.com page to load...
+2025-11-27 11:45:51.890 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Waiting for page to load (max 30 seconds)
+2025-11-27 11:45:51.908 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Current URL: https://www.sahibinden.com/
+2025-11-27 11:45:51.936 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Page loaded successfully. Current URL: https://www.sahibinden.com/
+2025-11-27 11:45:51.936 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Page loaded successfully
+2025-11-27 11:45:51.936 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 4: Verifying navigation to actual Sahibinden.com page...
+2025-11-27 11:45:52.045 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Verifying Sahibinden page. Current URL: https://www.sahibinden.com/
+2025-11-27 11:45:52.082 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Sahibinden logo displayed: false
+2025-11-27 11:45:52.098 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test teardown ===
+2025-11-27 11:45:52.381 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver closed successfully
+2025-11-27 11:45:52.391 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test setup ===
+2025-11-27 11:45:52.391 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Creating WebDriver with configuration: browser=chrome, grid=false, headless=false
+2025-11-27 11:45:52.391 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Setting up Chrome driver
+2025-11-27 11:45:53.076 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Configuring WebDriver timeouts and window settings
+2025-11-27 11:45:53.470 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Browser window maximized
+2025-11-27 11:45:53.470 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver initialized successfully
+2025-11-27 11:45:53.470 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:45:53.470 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting Alternative Test: Direct Page Load
+2025-11-27 11:45:53.470 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:45:53.471 [Test worker] DEBUG com.sahibinden.uiautomation.pages.BasePage - Initialized page: SahibindenHomePage
+2025-11-27 11:45:53.471 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Initialized SahibindenHomePage with base URL: https://www.sahibinden.com
+2025-11-27 11:45:53.471 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Opening Sahibinden.com...
+2025-11-27 11:45:53.471 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Opening Sahibinden home page: https://www.sahibinden.com
+2025-11-27 11:45:53.471 [Test worker] INFO  com.sahibinden.uiautomation.pages.BasePage - Navigating to: https://www.sahibinden.com
+2025-11-27 11:45:53.855 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Waiting for page to load (max 60 seconds)
+2025-11-27 11:45:53.860 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Current URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com
+2025-11-27 11:45:53.864 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Page loaded successfully. Current URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com
+2025-11-27 11:45:53.868 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Verifying Sahibinden page. Current URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com
+2025-11-27 11:46:03.902 [Test worker] DEBUG com.sahibinden.uiautomation.pages.BasePage - Element not displayed: [FAILED toString()]
+2025-11-27 11:46:04.247 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Sahibinden logo displayed: false
+2025-11-27 11:46:04.251 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test teardown ===
+2025-11-27 11:46:09.272 [Test worker] ERROR com.sahibinden.uiautomation.tests.BaseTest - Error closing WebDriver
+org.openqa.selenium.WebDriverException: Timed out waiting for driver server to stop.
+Build info: version: '4.37.0', revision: '3c1da1e342'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.6.1', java.version: '17.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [de3bfeb0c8f28fde5235d902cf6ad37c, quit {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: /var/folders/wp/hy5_wrtn7dg...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61482}, goog:processID: 60993, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:61482/devtoo..., se:cdpVersion: 142.0.7444.176, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: de3bfeb0c8f28fde5235d902cf6ad37c
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:164)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:634)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:458)
+	at org.openqa.selenium.chromium.ChromiumDriver.quit(ChromiumDriver.java:404)
+	at com.sahibinden.uiautomation.tests.BaseTest.tearDown(BaseTest.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:701)
+	at org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:502)
+	at org.junit.jupiter.engine.support.MethodReflectionUtils.invoke(MethodReflectionUtils.java:45)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:61)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:124)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:163)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptLifecycleMethod(TimeoutExtension.java:128)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptAfterEachMethod(TimeoutExtension.java:110)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:123)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:99)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:66)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:47)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:39)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invokeVoid(InterceptingExecutableInvoker.java:71)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeMethodInExtensionContext(ClassBasedTestDescriptor.java:549)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$synthesizeAfterEachMethodAdapter$0(ClassBasedTestDescriptor.java:539)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAfterEachMethods$0(TestMethodTestDescriptor.java:244)
+	at org.junit.jupiter.engine.descriptor.CallbackSupport.lambda$invokeAfterCallbacks$1(CallbackSupport.java:49)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.CallbackSupport.lambda$invokeAfterCallbacks$0(CallbackSupport.java:49)
+	at org.junit.platform.commons.util.CollectionUtils.forEachInReverseOrder(CollectionUtils.java:209)
+	at org.junit.jupiter.engine.descriptor.CallbackSupport.invokeAfterCallbacks(CallbackSupport.java:48)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAfterEachMethods(TestMethodTestDescriptor.java:242)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:161)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:176)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:246)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:218)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:179)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:157)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:125)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:93)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$0(InterceptingLauncher.java:41)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:40)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:135)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:110)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:104)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.MethodInvocation.invokeOn(MethodInvocation.java:77)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:28)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:19)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:88)
+	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:194)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:126)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:122)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: java.util.concurrent.ExecutionException: java.io.UncheckedIOException: java.net.ConnectException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:160)
+	... 107 common frames omitted
+Caused by: java.io.UncheckedIOException: java.net.ConnectException
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:500)
+	at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+	at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.lambda$executeAsync$2(JdkHttpClient.java:387)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:573)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:123)
+	at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:459)
+	... 8 common frames omitted
+Caused by: java.net.ConnectException: null
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1047)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:198)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.checkRetryConnect(PlainHttpConnection.java:230)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:206)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	... 3 common frames omitted
+Caused by: java.nio.channels.ClosedChannelException: null
+	at java.base/sun.nio.ch.SocketChannelImpl.ensureOpen(SocketChannelImpl.java:195)
+	at java.base/sun.nio.ch.SocketChannelImpl.beginConnect(SocketChannelImpl.java:760)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:848)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:183)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:185)
+	... 9 common frames omitted
+2025-11-27 11:46:26.881 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting SahibindenCloudflareTest using Java 17.0.2 with PID 61361 (started by burak.tahmaz in /Users/burak.tahmaz/repos/ui-automation)
+2025-11-27 11:46:26.883 [Test worker] DEBUG c.s.uiautomation.tests.SahibindenCloudflareTest - Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-11-27 11:46:26.883 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-27 11:46:27.092 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Started SahibindenCloudflareTest in 0.336 seconds (process running for 1.047)
+2025-11-27 11:46:27.476 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test setup ===
+2025-11-27 11:46:27.476 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Creating WebDriver with configuration: browser=chrome, grid=false, headless=false
+2025-11-27 11:46:27.476 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Setting up Chrome driver
+2025-11-27 11:46:28.644 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Configuring WebDriver timeouts and window settings
+2025-11-27 11:46:29.045 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Browser window maximized
+2025-11-27 11:46:29.045 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver initialized successfully
+2025-11-27 11:46:29.046 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:46:29.047 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting Test #1: Cloudflare Verification
+2025-11-27 11:46:29.047 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:46:29.054 [Test worker] DEBUG com.sahibinden.uiautomation.pages.BasePage - Initialized page: SahibindenHomePage
+2025-11-27 11:46:29.054 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Initialized SahibindenHomePage with base URL: https://www.sahibinden.com
+2025-11-27 11:46:29.054 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 1: Navigating to Sahibinden.com...
+2025-11-27 11:46:29.055 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Opening Sahibinden home page: https://www.sahibinden.com
+2025-11-27 11:46:29.055 [Test worker] INFO  com.sahibinden.uiautomation.pages.BasePage - Navigating to: https://www.sahibinden.com
+2025-11-27 11:46:29.423 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 2: Checking for Cloudflare challenge...
+2025-11-27 11:46:29.433 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:46:29.433 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╔════════════════════════════════════════════════════════════╗
+2025-11-27 11:46:29.434 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  CLOUDFLARE CHALLENGE DETECTED                             ║
+2025-11-27 11:46:29.434 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  USER ACTION REQUIRED:                                     ║
+2025-11-27 11:46:29.434 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Please complete the Cloudflare verification manually      ║
+2025-11-27 11:46:29.434 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Waiting for up to 60 seconds...                           ║
+2025-11-27 11:46:29.434 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╚════════════════════════════════════════════════════════════╝
+2025-11-27 11:46:29.434 [Test worker] WARN  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification detected. Waiting for manual user interaction...
+2025-11-27 11:46:29.434 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - USER ACTION REQUIRED: Please complete the Cloudflare verification manually
+2025-11-27 11:46:29.448 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:46:29.448 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:46:30.193 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:46:30.193 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:46:30.708 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:46:30.708 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:46:32.166 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: false. URL: https://www.sahibinden.com/, Title: sahibinden.com - Türkiye'nin Online İlan ve Alışveriş Sitesi
+2025-11-27 11:46:32.169 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification completed successfully!
+2025-11-27 11:46:32.220 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Cloudflare verification completed successfully
+2025-11-27 11:46:32.221 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 3: Waiting for Sahibinden.com page to load...
+2025-11-27 11:46:32.221 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Waiting for page to load (max 30 seconds)
+2025-11-27 11:46:32.252 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Current URL: https://www.sahibinden.com/
+2025-11-27 11:46:32.258 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Page loaded successfully. Current URL: https://www.sahibinden.com/
+2025-11-27 11:46:32.258 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Page loaded successfully
+2025-11-27 11:46:32.258 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 4: Verifying navigation to actual Sahibinden.com page...
+2025-11-27 11:46:32.261 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Verifying Sahibinden page. Current URL: https://www.sahibinden.com/
+2025-11-27 11:46:32.303 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Sahibinden logo displayed: false
+2025-11-27 11:46:32.310 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test teardown ===
+2025-11-27 11:46:32.662 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver closed successfully
+2025-11-27 11:50:21.631 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting SahibindenCloudflareTest using Java 17.0.2 with PID 63574 (started by burak.tahmaz in /Users/burak.tahmaz/repos/ui-automation)
+2025-11-27 11:50:21.633 [Test worker] DEBUG c.s.uiautomation.tests.SahibindenCloudflareTest - Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-11-27 11:50:21.634 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-27 11:50:21.944 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Started SahibindenCloudflareTest in 0.431 seconds (process running for 1.565)
+2025-11-27 11:50:22.398 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test setup ===
+2025-11-27 11:50:22.398 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Creating WebDriver with configuration: browser=chrome, grid=false, headless=false
+2025-11-27 11:50:22.399 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Setting up Chrome driver
+2025-11-27 11:50:27.149 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Configuring WebDriver timeouts and window settings
+2025-11-27 11:50:27.548 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Browser window maximized
+2025-11-27 11:50:27.548 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver initialized successfully
+2025-11-27 11:50:27.550 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:50:27.550 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting Test #1: Cloudflare Verification
+2025-11-27 11:50:27.550 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:50:27.558 [Test worker] DEBUG com.sahibinden.uiautomation.pages.BasePage - Initialized page: SahibindenHomePage
+2025-11-27 11:50:27.558 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Initialized SahibindenHomePage with base URL: https://www.sahibinden.com
+2025-11-27 11:50:27.558 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 1: Navigating to Sahibinden.com...
+2025-11-27 11:50:27.558 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Opening Sahibinden home page: https://www.sahibinden.com
+2025-11-27 11:50:27.558 [Test worker] INFO  com.sahibinden.uiautomation.pages.BasePage - Navigating to: https://www.sahibinden.com
+2025-11-27 11:50:28.209 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 2: Checking for Cloudflare challenge...
+2025-11-27 11:50:28.220 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:50:28.221 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╔════════════════════════════════════════════════════════════╗
+2025-11-27 11:50:28.221 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  CLOUDFLARE CHALLENGE DETECTED                             ║
+2025-11-27 11:50:28.221 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  USER ACTION REQUIRED:                                     ║
+2025-11-27 11:50:28.221 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Please complete the Cloudflare verification manually      ║
+2025-11-27 11:50:28.221 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Waiting for up to 60 seconds...                           ║
+2025-11-27 11:50:28.222 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╚════════════════════════════════════════════════════════════╝
+2025-11-27 11:50:28.222 [Test worker] WARN  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification detected. Waiting for manual user interaction...
+2025-11-27 11:50:28.222 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - USER ACTION REQUIRED: Please complete the Cloudflare verification manually
+2025-11-27 11:50:28.235 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:50:28.237 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:50:28.878 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:50:28.878 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:50:29.393 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:50:29.393 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:50:30.947 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: false. URL: https://www.sahibinden.com/, Title: sahibinden.com - Türkiye'nin Online İlan ve Alışveriş Sitesi
+2025-11-27 11:50:30.947 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification completed successfully!
+2025-11-27 11:50:30.993 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Cloudflare verification completed successfully
+2025-11-27 11:50:30.994 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 3: Waiting for Sahibinden.com page to load...
+2025-11-27 11:50:30.994 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Waiting for page to load (max 30 seconds)
+2025-11-27 11:50:31.002 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Current URL: https://www.sahibinden.com/
+2025-11-27 11:50:31.010 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Page loaded successfully. Current URL: https://www.sahibinden.com/
+2025-11-27 11:50:31.011 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Page loaded successfully
+2025-11-27 11:50:31.012 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 4: Verifying navigation to actual Sahibinden.com page...
+2025-11-27 11:50:31.044 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Verifying Sahibinden page. Current URL: https://www.sahibinden.com/
+2025-11-27 11:50:31.049 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Current page URL: https://www.sahibinden.com/
+2025-11-27 11:50:31.049 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Successfully navigated to Sahibinden.com
+2025-11-27 11:50:31.049 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Current URL: https://www.sahibinden.com/
+2025-11-27 11:50:31.052 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:50:31.052 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Test #1 PASSED: Cloudflare verification successful
+2025-11-27 11:50:31.053 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Verified navigation to actual Sahibinden.com page
+2025-11-27 11:50:31.053 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:50:31.084 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test teardown ===
+2025-11-27 11:50:31.344 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver closed successfully
+2025-11-27 11:54:39.215 [Test worker] INFO  c.s.uiautomation.UiAutomationApplicationTests - Starting UiAutomationApplicationTests using Java 17.0.2 with PID 66431 (started by burak.tahmaz in /Users/burak.tahmaz/repos/ui-automation)
+2025-11-27 11:54:39.217 [Test worker] DEBUG c.s.uiautomation.UiAutomationApplicationTests - Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-11-27 11:54:39.218 [Test worker] INFO  c.s.uiautomation.UiAutomationApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-11-27 11:54:39.419 [Test worker] INFO  c.s.uiautomation.UiAutomationApplicationTests - Started UiAutomationApplicationTests in 0.318 seconds (process running for 1.069)
+2025-11-27 11:54:39.803 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test setup ===
+2025-11-27 11:54:39.803 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Creating WebDriver with configuration: browser=chrome, grid=false, headless=false
+2025-11-27 11:54:39.804 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Setting up Chrome driver
+2025-11-27 11:54:41.628 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Configuring WebDriver timeouts and window settings
+2025-11-27 11:54:42.033 [Test worker] INFO  c.sahibinden.uiautomation.config.WebDriverFactory - Browser window maximized
+2025-11-27 11:54:42.033 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver initialized successfully
+2025-11-27 11:54:42.034 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:54:42.034 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - Starting Test #1: Cloudflare Verification
+2025-11-27 11:54:42.034 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:54:42.041 [Test worker] DEBUG com.sahibinden.uiautomation.pages.BasePage - Initialized page: SahibindenHomePage
+2025-11-27 11:54:42.041 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Initialized SahibindenHomePage with base URL: https://www.sahibinden.com
+2025-11-27 11:54:42.041 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 1: Navigating to Sahibinden.com...
+2025-11-27 11:54:42.041 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Opening Sahibinden home page: https://www.sahibinden.com
+2025-11-27 11:54:42.041 [Test worker] INFO  com.sahibinden.uiautomation.pages.BasePage - Navigating to: https://www.sahibinden.com
+2025-11-27 11:54:42.464 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 2: Checking for Cloudflare challenge...
+2025-11-27 11:54:42.554 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:54:42.554 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╔════════════════════════════════════════════════════════════╗
+2025-11-27 11:54:42.555 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  CLOUDFLARE CHALLENGE DETECTED                             ║
+2025-11-27 11:54:42.555 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  USER ACTION REQUIRED:                                     ║
+2025-11-27 11:54:42.555 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Please complete the Cloudflare verification manually      ║
+2025-11-27 11:54:42.555 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ║  Waiting for up to 60 seconds...                           ║
+2025-11-27 11:54:42.555 [Test worker] WARN  c.s.uiautomation.tests.SahibindenCloudflareTest - ╚════════════════════════════════════════════════════════════╝
+2025-11-27 11:54:42.555 [Test worker] WARN  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification detected. Waiting for manual user interaction...
+2025-11-27 11:54:42.556 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - USER ACTION REQUIRED: Please complete the Cloudflare verification manually
+2025-11-27 11:54:42.571 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:54:42.571 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:54:43.187 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:54:43.188 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:54:43.704 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: true. URL: https://secure.sahibinden.com/cs/checkLoading?returnUrl=https%3A%2F%2Fwww.sahibinden.com, Title: Just a moment...
+2025-11-27 11:54:43.705 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Still on Cloudflare challenge page, waiting...
+2025-11-27 11:54:45.171 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare challenge detected: false. URL: https://www.sahibinden.com/, Title: sahibinden.com - Türkiye'nin Online İlan ve Alışveriş Sitesi
+2025-11-27 11:54:45.171 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Cloudflare verification completed successfully!
+2025-11-27 11:54:45.231 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Cloudflare verification completed successfully
+2025-11-27 11:54:45.231 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 3: Waiting for Sahibinden.com page to load...
+2025-11-27 11:54:45.231 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Waiting for page to load (max 30 seconds)
+2025-11-27 11:54:45.260 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Current URL: https://www.sahibinden.com/
+2025-11-27 11:54:45.263 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Page loaded successfully. Current URL: https://www.sahibinden.com/
+2025-11-27 11:54:45.263 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Page loaded successfully
+2025-11-27 11:54:45.264 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - STEP 4: Verifying navigation to actual Sahibinden.com page...
+2025-11-27 11:54:45.266 [Test worker] INFO  c.sahibinden.uiautomation.pages.SahibindenHomePage - Verifying Sahibinden page. Current URL: https://www.sahibinden.com/
+2025-11-27 11:54:45.269 [Test worker] DEBUG c.sahibinden.uiautomation.pages.SahibindenHomePage - Current page URL: https://www.sahibinden.com/
+2025-11-27 11:54:45.269 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Successfully navigated to Sahibinden.com
+2025-11-27 11:54:45.269 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Current URL: https://www.sahibinden.com/
+2025-11-27 11:54:45.272 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:54:45.272 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Test #1 PASSED: Cloudflare verification successful
+2025-11-27 11:54:45.272 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ✓ Verified navigation to actual Sahibinden.com page
+2025-11-27 11:54:45.273 [Test worker] INFO  c.s.uiautomation.tests.SahibindenCloudflareTest - ========================================
+2025-11-27 11:54:45.277 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - === Starting test teardown ===
+2025-11-27 11:54:45.514 [Test worker] INFO  com.sahibinden.uiautomation.tests.BaseTest - WebDriver closed successfully

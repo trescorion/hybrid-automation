@@ -1,0 +1,30 @@
+# Test Configuration
+spring:
+  main:
+    banner-mode: off
+    web-application-type: none
+
+# Selenium Configuration
+selenium:
+  grid:
+    enabled: false  # Set to true to use Selenium Grid/Selenoid
+    hub-url: http://localhost:4444/wd/hub  # Selenium Grid/Selenoid URL
+  
+  browser:
+    type: chrome  # chrome, firefox, edge
+    headless: false  # Set to true for headless mode
+    
+  timeouts:
+    implicit-wait: 10  # seconds
+    page-load: 30  # seconds
+    script: 30  # seconds
+    
+  window:
+    maximize: true
+    width: 1920
+    height: 1080
+
+# Test Configuration
+test:
+  base-url: https://www.sahibinden.com
+  cloudflare-wait-timeout: 60  # seconds to wait for Cloudflare verification
