@@ -1,6 +1,7 @@
 package com.sahibinden.uiautomation.tests;
 
 import com.sahibinden.uiautomation.pages.SahibindenHomePage;
+import com.sahibinden.uiautomation.pages.YepyPage;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 @DisplayName("Yepy Category Tests")
 public class YepyTest extends BaseTest {
-    
+
+
     @Test
     @DisplayName("Navigate to Yepy category and verify link interaction")
     public void testYepyNavigation() {
@@ -40,7 +42,11 @@ public class YepyTest extends BaseTest {
         assertThat(getCurrentUrl())
             .as("URL should contain '/yepy'")
             .contains("/yepy");
-        // BaseTest @AfterEach logs completion with final URL
+        assertThat(yepyPage.isElementDisplayed(YepyPage.CIHAZ_ARA_LINK, "Cihaz Ara Linki Göründü"))
+                .as("Cihaz ara link should be visible")
+                .isTrue();
+        yepyPage.clickElement(YepyPage.CIHAZ_ARA_LINK, "Cihaz Ara Linkine Tıklandı");
+        yepyPage.waitForUrlContains("/yepy/yenilenmis-telefonlar");
     }
 
 }

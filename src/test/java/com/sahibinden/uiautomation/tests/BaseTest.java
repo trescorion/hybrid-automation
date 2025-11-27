@@ -3,6 +3,7 @@ package com.sahibinden.uiautomation.tests;
 import com.sahibinden.uiautomation.config.TestConfig;
 import com.sahibinden.uiautomation.config.WebDriverFactory;
 import com.sahibinden.uiautomation.pages.SahibindenHomePage;
+import com.sahibinden.uiautomation.pages.YepyPage;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,6 +38,7 @@ public abstract class BaseTest {
     
     protected WebDriver driver;
     protected SahibindenHomePage homePage;
+    protected YepyPage yepyPage;
     
     private static final int COOKIE_BANNER_WAIT_TIMEOUT = 5; // Shorter timeout for optional element
     
@@ -56,6 +58,7 @@ public abstract class BaseTest {
         
         driver = webDriverFactory.createDriver();
         homePage = new SahibindenHomePage(driver, testConfig.getBaseUrl());
+        yepyPage = new YepyPage(driver);
     }
     
     /**

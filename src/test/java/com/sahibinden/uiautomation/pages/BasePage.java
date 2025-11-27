@@ -97,7 +97,7 @@ public abstract class BasePage {
      * @param locator By locator
      * @return the visible WebElement
      */
-    protected WebElement waitForVisibility(By locator) {
+    public WebElement waitForVisibility(By locator) {
         log.debug("Waiting for element visibility using locator: {}", locator);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
