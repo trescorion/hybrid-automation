@@ -6,7 +6,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Base Page Object class implementing common functionality.
@@ -96,11 +101,12 @@ public abstract class BasePage {
     
     /**
      * Waits for URL to contain the specified fragment.
-     * 
+     * Public method for use in tests and page objects.
+     *
      * @param urlFragment URL fragment to wait for
      * @return true if URL contains the fragment within timeout
      */
-    protected boolean waitForUrlContains(String urlFragment) {
+    public boolean waitForUrlContains(String urlFragment) {
         log.debug("Waiting for URL to contain: {}", urlFragment);
         return wait.until(ExpectedConditions.urlContains(urlFragment));
     }
@@ -208,11 +214,123 @@ public abstract class BasePage {
     
     /**
      * Creates a custom wait with specified timeout.
-     * 
+     *
      * @param timeoutInSeconds timeout in seconds
      * @return WebDriverWait instance
      */
     protected WebDriverWait createWait(int timeoutInSeconds) {
         return new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+    }
+
+    /**
+     * Generic method to click any element by locator.
+     * Follows W3C WebDriver standards - STRICT approach.
+     *
+     * Does NOT use JavaScript click fallback to ensure real user interaction.
+     * If element cannot be clicked, it indicates a genuine UI issue.
+     *
+     * @param locator By locator (By.id, By.css, By.xpath, etc.)
+     * @param elementName descriptive name for logging
+     * @throws AssertionError if element cannot be clicked (UI problem detected)
+     */
+    public void clickElement(By locator, String elementName) {
+        log.info("Attempting to click: {}", elementName);
+        
+        try {
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+            
+            element.click();
+            log.info("✓ Successfully clicked: {}", elementName);
+            
+        } catch (ElementClickInterceptedException e) {
+            // Element is covered - this indicates a REAL UI problem!
+            log.error("❌ Element '{}' is intercepted by another element", elementName);
+            log.error("Intercepting element details: {}", e.getMessage());
+            
+            // Take screenshot for debugging
+            takeScreenshot(elementName + "_click_intercepted");
+            
+            throw new AssertionError(
+                String.format("Cannot click '%s' - element is covered by another element. " +
+                             "This indicates a UI issue that needs to be fixed. " +
+                             "Check screenshot for details.", elementName),
+                e
+            );
+            
+        } catch (TimeoutException e) {
+            log.error("❌ Element '{}' not clickable within {} seconds",
+                     elementName, DEFAULT_WAIT_TIMEOUT);
+            
+            takeScreenshot(elementName + "_not_clickable");
+            
+            throw new AssertionError(
+                String.format("Element '%s' not clickable within %d seconds. " +
+                             "Check screenshot for details.",
+                             elementName, DEFAULT_WAIT_TIMEOUT),
+                e
+            );
+            
+        } catch (NoSuchElementException e) {
+            log.error("❌ Element '{}' not found on page", elementName);
+            
+            takeScreenshot(elementName + "_not_found");
+            
+            throw new AssertionError(
+                String.format("Element '%s' not found on page. Check screenshot.", elementName),
+                e
+            );
+        }
+    }
+    
+    /**
+     * Takes screenshot for debugging purposes.
+     * Screenshots are saved in build/screenshots directory.
+     *
+     * @param filename base filename for screenshot
+     */
+    protected void takeScreenshot(String filename) {
+        try {
+            TakesScreenshot screenshotDriver = (TakesScreenshot) driver;
+            File screenshot = screenshotDriver.getScreenshotAs(OutputType.FILE);
+            
+            // Create screenshots directory
+            File screenshotsDir = new File("build/screenshots");
+            screenshotsDir.mkdirs();
+            
+            // Generate unique filename with timestamp
+            String timestamp = LocalDateTime.now().format(
+                DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss")
+            );
+            String fileName = String.format("%s_%s.png", filename, timestamp);
+            File destination = new File(screenshotsDir, fileName);
+            
+            // Copy screenshot
+            Files.copy(screenshot.toPath(), destination.toPath(),
+                      StandardCopyOption.REPLACE_EXISTING);
+            
+            log.info("📸 Screenshot saved: {}", destination.getAbsolutePath());
+            
+        } catch (Exception e) {
+            log.warn("Failed to take screenshot: {}", e.getMessage());
+        }
+    }
+    
+    /**
+     * Generic method to check if element is displayed.
+     *
+     * @param locator By locator
+     * @param elementName descriptive name for logging
+     * @return true if element is visible
+     */
+    public boolean isElementDisplayed(By locator, String elementName) {
+        try {
+            WebElement element = driver.findElement(locator);
+            boolean displayed = element.isDisplayed();
+            log.debug("{} displayed: {}", elementName, displayed);
+            return displayed;
+        } catch (Exception e) {
+            log.debug("{} not found: {}", elementName, e.getMessage());
+            return false;
+        }
     }
 }

@@ -119,21 +119,30 @@ public class WebDriverFactory {
     }
     
     /**
-     * Configures Chrome options including headless mode.
+     * Configures Chrome options including headless mode and custom user agent.
      */
     private ChromeOptions getChromeOptions() {
         ChromeOptions options = new ChromeOptions();
+        
+        // Custom User Agent
+        String userAgent = config.getBrowser().getUserAgent();
+        if (userAgent != null && !userAgent.trim().isEmpty()) {
+            options.addArguments("user-agent=" + userAgent);
+            log.info("Using custom user agent: {}", userAgent);
+        }
         
         if (config.getBrowser().isHeadless()) {
             options.addArguments("--headless=new");
             log.info("Chrome headless mode enabled");
         }
         
-        // Common Chrome arguments for stability
+        // Common Chrome arguments for stability and anti-detection
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
         options.addArguments("--disable-blink-features=AutomationControlled");
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--lang=tr-TR");
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.setExperimentalOption("useAutomationExtension", false);
         
@@ -141,10 +150,17 @@ public class WebDriverFactory {
     }
     
     /**
-     * Configures Firefox options including headless mode.
+     * Configures Firefox options including headless mode and custom user agent.
      */
     private FirefoxOptions getFirefoxOptions() {
         FirefoxOptions options = new FirefoxOptions();
+        
+        // Custom User Agent
+        String userAgent = config.getBrowser().getUserAgent();
+        if (userAgent != null && !userAgent.trim().isEmpty()) {
+            options.addPreference("general.useragent.override", userAgent);
+            log.info("Using custom user agent: {}", userAgent);
+        }
         
         if (config.getBrowser().isHeadless()) {
             options.addArguments("--headless");
@@ -155,10 +171,17 @@ public class WebDriverFactory {
     }
     
     /**
-     * Configures Edge options including headless mode.
+     * Configures Edge options including headless mode and custom user agent.
      */
     private EdgeOptions getEdgeOptions() {
         EdgeOptions options = new EdgeOptions();
+        
+        // Custom User Agent
+        String userAgent = config.getBrowser().getUserAgent();
+        if (userAgent != null && !userAgent.trim().isEmpty()) {
+            options.addArguments("user-agent=" + userAgent);
+            log.info("Using custom user agent: {}", userAgent);
+        }
         
         if (config.getBrowser().isHeadless()) {
             options.addArguments("--headless=new");
@@ -167,6 +190,9 @@ public class WebDriverFactory {
         
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-blink-features=AutomationControlled");
+        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        options.setExperimentalOption("useAutomationExtension", false);
         
         return options;
     }

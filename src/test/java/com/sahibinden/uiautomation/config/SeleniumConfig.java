@@ -28,6 +28,7 @@ public class SeleniumConfig {
     public static class BrowserConfig {
         private String type = "chrome";
         private boolean headless = false;
+        private String userAgent;
     }
     
     @Data
