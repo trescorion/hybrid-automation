@@ -1,24 +1,36 @@
-HELP.md
-.gradle
+# Gradle
+.gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# Logs
+logs/
+*.log
+*.log.*
 
-### IntelliJ IDEA ###
-.idea
+# Screenshots and test artifacts
+build/screenshots/
+build/reports/
+build/test-results/
+*.png
+*.jpg
+*.jpeg
+!**/src/**/*.png
+!**/src/**/*.jpg
+
+# WebDriver binaries (downloaded by WebDriverManager)
+.drivers/
+drivers/
+*.exe
+chromedriver*
+geckodriver*
+msedgedriver*
+operadriver*
+
+# IDE - IntelliJ IDEA
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -26,12 +38,58 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### NetBeans ###
+# IDE - Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# IDE - NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
+# IDE - VS Code
 .vscode/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Application specific
+HELP.md
+
+# Test coverage
+.nyc_output/
+coverage/
+*.lcov
+
+# Maven (if used in future)
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml

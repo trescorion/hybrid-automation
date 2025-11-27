@@ -48,9 +48,12 @@ public abstract class BasePage {
      * 
      * @return current URL
      */
+
+    //test
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
+    
     
     /**
      * Gets the current page title.
