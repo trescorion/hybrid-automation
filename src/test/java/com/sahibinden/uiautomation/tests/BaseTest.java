@@ -4,12 +4,18 @@ import com.sahibinden.uiautomation.config.TestConfig;
 import com.sahibinden.uiautomation.config.WebDriverFactory;
 import com.sahibinden.uiautomation.pages.SahibindenHomePage;
 import com.sahibinden.uiautomation.pages.YepyPage;
+import io.qameta.allure.Allure;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +24,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.ByteArrayInputStream;
 import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,6 +52,25 @@ public abstract class BaseTest {
     private static final int COOKIE_BANNER_WAIT_TIMEOUT = 5; // Shorter timeout for optional element
     private static final By COOKIE_ACCEPT_ALL = By.id("onetrust-accept-btn-handler");
     
+    @RegisterExtension
+    final TestWatcher testWatcher = new TestWatcher() {
+        @Override
+        public void testFailed(ExtensionContext context, Throwable cause) {
+            captureScreenshot(context.getDisplayName());
+        }
+    };
+
+    public void captureScreenshot(String name) {
+        if (driver != null) {
+            log.info("Capturing screenshot for failed test: {}", name);
+            try {
+                byte[] content = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                Allure.addAttachment(name, new ByteArrayInputStream(content));
+            } catch (Exception e) {
+                log.error("Failed to capture screenshot", e);
+            }
+        }
+    }
 
     @BeforeEach
     public void setUp(TestInfo testInfo) {

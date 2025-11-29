@@ -2,6 +2,7 @@ package com.sahibinden.uiautomation.tests;
 
 import com.sahibinden.uiautomation.pages.SahibindenHomePage;
 import com.sahibinden.uiautomation.pages.YepyPage;
+import io.qameta.allure.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,11 +12,16 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
-@DisplayName("Yepy Category Tests")
+@Epic("Sahibinden UI Otomasyon")
+@Feature("Yepy - Yenilenmiş Telefonlar")
+@DisplayName("Yepy Kategori Testleri")
 public class YepyTest extends BaseTest {
 
     @Test
-    @DisplayName("Verify price order ascending functionality")
+    @Story("Fiyat Sıralama")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Artan Fiyat Sıralaması Kontrolü")
+    @Description("Kullanıcı 'Fiyat: Düşükten Yükseğe' seçeneğini seçtiğinde ürünler ucuzdan pahalıya sıralanmalıdır.")
     public void testPriceOrderAscending() {
         navigateToYenilenmisTelefonlar();
         yepyPage.applyPriceSorting(true);
@@ -23,7 +29,10 @@ public class YepyTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Verify price order descending functionality")
+    @Story("Fiyat Sıralama")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Azalan Fiyat Sıralaması Kontrolü")
+    @Description("Kullanıcı 'Fiyat: Yüksekten Düşüğe' seçeneğini seçtiğinde ürünler pahalıdan ucuza sıralanmalıdır.")
     public void testPriceOrderDescending() {
         navigateToYenilenmisTelefonlar();
         yepyPage.applyPriceSorting(false);
@@ -31,7 +40,10 @@ public class YepyTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Verify maximum price filter with descending sort")
+    @Story("Fiyat Filtreleme")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Maksimum Fiyat ve Sıralama Birlikte Kullanımı")
+    @Description("Kullanıcı maksimum fiyat belirleyip sıralama yaptığında, hem fiyat limiti hem de sıralama kuralı geçerli olmalıdır.")
     public void testMaxPriceFilterWithDescendingSort() {
         navigateToYenilenmisTelefonlar();
 

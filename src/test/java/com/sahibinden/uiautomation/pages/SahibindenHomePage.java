@@ -1,9 +1,9 @@
 package com.sahibinden.uiautomation.pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 
 /**
  * Page Object for Sahibinden.com home page.
@@ -34,6 +34,7 @@ public class SahibindenHomePage extends BasePage {
      * 
      * @return this page object for method chaining
      */
+    @Step("Sahibinden ana sayfası açılıyor: {this.baseUrl}")
     public SahibindenHomePage open() {
         log.info("Opening Sahibinden home page: {}", baseUrl);
         navigateTo(baseUrl);
@@ -47,6 +48,7 @@ public class SahibindenHomePage extends BasePage {
      * @param timeoutInSeconds maximum wait time in seconds
      * @return true if page loaded successfully
      */
+    @Step("Sayfanın yüklenmesi bekleniyor (Max: {timeoutInSeconds}sn)")
     public boolean waitForPageLoad(int timeoutInSeconds) {
         log.info("Waiting for page to load (max {} seconds)", timeoutInSeconds);
         try {
@@ -74,6 +76,7 @@ public class SahibindenHomePage extends BasePage {
      * 
      * @return true if on actual Sahibinden page
      */
+    @Step("Sahibinden sayfasında olunduğu doğrulanıyor")
     public boolean isOnSahibindenPage() {
         String currentUrl = getCurrentUrl();
         log.info("Verifying Sahibinden page. Current URL: {}", currentUrl);
@@ -86,16 +89,6 @@ public class SahibindenHomePage extends BasePage {
             return false;
         }
         
-        // Additional verification: check for Sahibinden-specific elements
-    //    try {
-    //        boolean logoDisplayed = isDisplayed(sahibindenLogo);
-    //        log.info("Sahibinden logo displayed: {}", logoDisplayed);
-    //        return logoDisplayed;
-    //    } catch (Exception e) {
-    //        log.warn("Could not verify Sahibinden logo: {}", e.getMessage());
-    //        return urlCheck; // Fall back to URL check
-    //    }
-
         return urlCheck;
     }
     
@@ -116,6 +109,7 @@ public class SahibindenHomePage extends BasePage {
      * 
      * @return true if Cloudflare challenge is detected
      */
+    @Step("Cloudflare kontrolü yapılıyor")
     public boolean isCloudflareChallenge() {
         String currentUrl = getCurrentUrl();
         String pageTitle = getPageTitle();
@@ -137,6 +131,7 @@ public class SahibindenHomePage extends BasePage {
      * @param timeoutInSeconds maximum wait time
      * @return true if verification completed
      */
+    @Step("Cloudflare doğrulamasının geçilmesi bekleniyor")
     public boolean waitForCloudflareVerification(int timeoutInSeconds) {
         log.warn("Cloudflare verification detected. Waiting for manual user interaction...");
         log.info("USER ACTION REQUIRED: Please complete the Cloudflare verification manually");
@@ -156,32 +151,5 @@ public class SahibindenHomePage extends BasePage {
             return false;
         }
     }
-    
-    /**
-     * Generic method to click any category link by locator.
-     * Uses strict clicking approach from BasePage.
-     *
-     * Example usage:
-     *   homePage.clickCategoryLink(SahibindenHomePage.YEPY_LINK, "Yepy");
-     *   homePage.clickCategoryLink(By.linkText("Emlak"), "Emlak");
-     *
-     * @param locator By locator for the element
-     * @param linkName descriptive name for logging
-     * @throws AssertionError if click fails (UI problem)
-     */
-    //public void clickCategoryLink(By locator, String linkName) {
-    //    clickElement(locator, linkName + " category link");
-    //}
-    
-    /**
-     * Generic method to check if a category link is displayed.
-     *
-     * @param locator By locator for the element
-     * @param linkName descriptive name for logging
-     * @return true if link is visible
-     */
-    //public boolean isCategoryLinkDisplayed(By locator, String linkName) {
-    //    return isElementDisplayed(locator, linkName + " category link");
-    //}
     
 }

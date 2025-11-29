@@ -1,5 +1,6 @@
 package com.sahibinden.uiautomation.pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -47,6 +48,7 @@ public class YepyPage extends BasePage {
     }
 
 
+    @Step("Sayfadaki tüm fiyat elementleri bulunur")
     public List<WebElement> getAllPriceElements() {
         log.info("Finding all price elements on the page...");
         List<WebElement> priceElements = driver.findElements(ALL_PRICE_ELEMENTS);
@@ -54,6 +56,7 @@ public class YepyPage extends BasePage {
         return priceElements;
     }
 
+    @Step("Listelenen ilk fiyat alınır")
     public double getFirstPrice() {
         List<Double> prices = getAllPricesAsDoubles();
 
@@ -67,6 +70,7 @@ public class YepyPage extends BasePage {
         return firstPrice;
     }
 
+    @Step("İlk fiyatın limit dahilinde olup olmadığı kontrol edilir: {limit} ({isMax})")
     public boolean isFirstPriceWithinLimit(boolean isMax, double limit) {
         double firstPrice = getFirstPrice();
         String limitType = isMax ? "maximum" : "minimum";
@@ -87,6 +91,7 @@ public class YepyPage extends BasePage {
     }
 
 
+    @Step("Tüm fiyatlar liste olarak çekilir ve double'a çevrilir")
     public List<Double> getAllPricesAsDoubles() {
         List<WebElement> priceElements = getAllPriceElements();
         List<Double> prices = new ArrayList<>();
@@ -130,6 +135,7 @@ public class YepyPage extends BasePage {
     }
 
 
+    @Step("Fiyatların {ascending} sıraya göre olup olmadığı kontrol edilir")
     public boolean arePricesSorted(boolean ascending) {
         List<Double> prices = getAllPricesAsDoubles();
 
@@ -163,6 +169,7 @@ public class YepyPage extends BasePage {
     }
 
 
+    @Step("Maksimum fiyat girilir: {maxPrice}")
     public void setMaxPrice(int maxPrice) {
         log.info("Setting maximum price filter to: {}", maxPrice);
         WebElement priceInput = waitForVisibility(EN_YUKSEK_FIYAT_INPUT);
@@ -171,6 +178,7 @@ public class YepyPage extends BasePage {
         log.info("✓ Maximum price filter set to: {}", maxPrice);
     }
 
+    @Step("Minimum fiyat girilir: {minPrice}")
     public int setMinPrice(int minPrice) {
         log.info("Setting minimum price filter to: {}", minPrice);
         WebElement priceInput = waitForVisibility(EN_DUSUK_FIYAT_INPUT);
@@ -180,12 +188,14 @@ public class YepyPage extends BasePage {
         return minPrice;
     }
 
+    @Step("Arama butonuna tıklanır")
     public void clickSearchButton() {
         log.info("Clicking search button to apply filters...");
         clickElement(ARA_BUTTON, "Ara Button");
         log.info("✓ Search button clicked");
     }
 
+    @Step("URL'in maksimum fiyat filtresini içermesi beklenir: {maxPrice}")
     public void waitForPriceMaxInUrl(int maxPrice) {
         String urlFragment = "price_max=" + maxPrice;
         log.info("Waiting for URL to contain: {}", urlFragment);
@@ -193,6 +203,7 @@ public class YepyPage extends BasePage {
         log.info("✓ Price max filter applied - URL contains {}", urlFragment);
     }
 
+    @Step("URL'in minimum fiyat filtresini içermesi beklenir: {minPrice}")
     public void waitForPriceMinInUrl(int minPrice) {
         String urlFragment = "price_min=" + minPrice;
         log.info("Waiting for URL to contain: {}", urlFragment);
@@ -208,6 +219,7 @@ public class YepyPage extends BasePage {
      *
      * @param ascending true for ascending, false for descending
      */
+    @Step("Kullanıcı '{ascending}' parametresi ile fiyat sıralamasını uygular")
     public void applyPriceSorting(boolean ascending) {
         log.info("Applying price sorting: {}", ascending ? "ascending" : "descending");
 
@@ -231,6 +243,7 @@ public class YepyPage extends BasePage {
      * @param price The price value to filter by
      * @param isMax true for maximum price, false for minimum price
      */
+    @Step("Maksimum fiyat filtresi uygulanır: {price} TL")
     public void applyPriceFilter(int price, boolean isMax) {
         log.info("Applying {} price filter: {}", isMax ? "maximum" : "minimum", price);
 
@@ -258,6 +271,7 @@ public class YepyPage extends BasePage {
      * @param checkboxLocator The By locator for the checkbox
      * @param checkboxName    Descriptive name for logging
      */
+    @Step("Checkbox işaretleniyor: {checkboxName}")
     public void clickCheckbox(By checkboxLocator, String checkboxName) {
         log.info("Clicking checkbox: {}", checkboxName);
         clickElement(checkboxLocator, checkboxName);
