@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 @Slf4j
 public class SahibindenHomePage extends BasePage {
     
-    public static final By YEPY_LINK = By.id("yepy-link-category-tree");
+    public static final By YEPY_BUTTON = By.id("yepy-link-category-tree");
     
     private final String baseUrl;
     
@@ -120,8 +120,7 @@ public class SahibindenHomePage extends BasePage {
         String currentUrl = getCurrentUrl();
         String pageTitle = getPageTitle();
         
-        boolean isChallenge = currentUrl.contains("challenge") || 
-                             currentUrl.contains("waiting") ||
+        boolean isChallenge = currentUrl.contains("waiting") ||
                              pageTitle.toLowerCase().contains("cloudflare") ||
                              pageTitle.toLowerCase().contains("just a moment");
         
@@ -170,9 +169,9 @@ public class SahibindenHomePage extends BasePage {
      * @param linkName descriptive name for logging
      * @throws AssertionError if click fails (UI problem)
      */
-    public void clickCategoryLink(By locator, String linkName) {
-        clickElement(locator, linkName + " category link");
-    }
+    //public void clickCategoryLink(By locator, String linkName) {
+    //    clickElement(locator, linkName + " category link");
+    //}
     
     /**
      * Generic method to check if a category link is displayed.
@@ -181,8 +180,8 @@ public class SahibindenHomePage extends BasePage {
      * @param linkName descriptive name for logging
      * @return true if link is visible
      */
-    public boolean isCategoryLinkDisplayed(By locator, String linkName) {
-        return isElementDisplayed(locator, linkName + " category link");
-    }
+    //public boolean isCategoryLinkDisplayed(By locator, String linkName) {
+    //    return isElementDisplayed(locator, linkName + " category link");
+    //}
     
 }

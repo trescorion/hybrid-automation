@@ -20,6 +20,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.Duration;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Base test class for all UI tests.
  * Implements Template Method pattern - provides common setup/teardown.
@@ -224,6 +226,14 @@ public abstract class BaseTest {
         } else {
             log.debug("Cookie banner not found (may already be dismissed or not present)");
         }
+    }
+
+
+    protected void navigateToHomePageAndVerify() {
+        navigateToSahibinden();
+        assertThat(isOnSahibinden())
+                .as("Should be on Sahibinden.com")
+                .isTrue();
     }
     
     /**
