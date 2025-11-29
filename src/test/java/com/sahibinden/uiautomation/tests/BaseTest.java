@@ -43,15 +43,9 @@ public abstract class BaseTest {
     protected YepyPage yepyPage;
     
     private static final int COOKIE_BANNER_WAIT_TIMEOUT = 5; // Shorter timeout for optional element
-    
     private static final By COOKIE_ACCEPT_ALL = By.id("onetrust-accept-btn-handler");
     
-    /**
-     * Sets up WebDriver before each test.
-     * Automatically logs test start information.
-     *
-     * @param testInfo JUnit5 test information
-     */
+
     @BeforeEach
     public void setUp(TestInfo testInfo) {
         log.info("╔════════════════════════════════════════════════════════════╗");
@@ -62,13 +56,7 @@ public abstract class BaseTest {
         homePage = new SahibindenHomePage(driver, testConfig.getBaseUrl());
         yepyPage = new YepyPage(driver);
     }
-    
-    /**
-     * Tears down WebDriver after each test.
-     * Automatically logs test completion status.
-     *
-     * @param testInfo JUnit5 test information
-     */
+
     @AfterEach
     public void tearDown(TestInfo testInfo) {
         // Log test completion (JUnit will show if passed/failed)
@@ -86,17 +74,7 @@ public abstract class BaseTest {
             }
         }
     }
-    
-    /**
-     * Navigates to Sahibinden.com with automatic handling of:
-     * 1. Cloudflare verification
-     * 2. Cookie banner dismissal
-     * 3. Page load verification
-     *
-     * Use this method instead of directly calling homePage.open()
-     *
-     * @return SahibindenHomePage for method chaining
-     */
+
     protected SahibindenHomePage navigateToSahibinden() {
         log.info("Navigating to Sahibinden.com with automatic overlay handling...");
         
@@ -137,16 +115,7 @@ public abstract class BaseTest {
         log.info("✓ Successfully navigated to Sahibinden.com");
         return homePage;
     }
-    
-    /**
-     * Generic method to wait for an element to be clickable using explicit wait.
-     * This is a reusable method for any element that needs to be clicked.
-     * 
-     * @param locator By locator for the element
-     * @param elementName descriptive name for logging
-     * @param timeoutSeconds timeout in seconds
-     * @return WebElement if found and clickable, null if timeout occurs
-     */
+
     protected WebElement waitForElementClickable(By locator, String elementName, int timeoutSeconds) {
         log.debug("Waiting for element '{}' to be clickable (timeout: {}s)...", elementName, timeoutSeconds);
         try {
@@ -160,13 +129,6 @@ public abstract class BaseTest {
         }
     }
 
-    
-    /**
-     * Generic method to scroll the page.
-     * Useful for bringing elements into view before interaction.
-     *
-     * @param scrollTo "top", "bottom", or pixel value as string (e.g., "500")
-     */
     protected void scrollPage(String scrollTo) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         switch (scrollTo.toLowerCase()) {
@@ -188,13 +150,7 @@ public abstract class BaseTest {
                 }
         }
     }
-    
-    /**
-     * Dismisses the cookie/privacy banner if present.
-     * Cookie banner typically appears at the bottom of the page, so we scroll first.
-     * Uses generic reusable method: waitForElementClickable.
-     * Cookie banner appears on home page and should be dismissed after each setup.
-     */
+
     private void dismissCookieBanner() {
         log.debug("Checking for cookie banner...");
 
@@ -235,41 +191,21 @@ public abstract class BaseTest {
                 .as("Should be on Sahibinden.com")
                 .isTrue();
     }
-    
-    /**
-     * Verifies that we are on the actual Sahibinden.com page (not Cloudflare or error page).
-     *
-     * @return true if on Sahibinden.com
-     */
+
     protected boolean isOnSahibinden() {
         boolean result = homePage.isOnSahibindenPage();
         log.debug("Is on Sahibinden page: {}", result);
         return result;
     }
-    
-    /**
-     * Gets the current page URL.
-     *
-     * @return current URL
-     */
+
     protected String getCurrentUrl() {
         return homePage.getUrl();
     }
-    
-    /**
-     * Gets the base URL for tests.
-     *
-     * @return base URL
-     */
+
     protected String getBaseUrl() {
         return testConfig.getBaseUrl();
     }
-    
-    /**
-     * Gets the Cloudflare wait timeout.
-     *
-     * @return timeout in seconds
-     */
+
     protected int getCloudflareTimeout() {
         return testConfig.getCloudflareWaitTimeout();
     }

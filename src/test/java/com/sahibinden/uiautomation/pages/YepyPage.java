@@ -8,9 +8,10 @@ import org.openqa.selenium.WebElement;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Slf4j
-public class YepyPage extends BasePage{
+public class YepyPage extends BasePage {
 
     public static final By CIHAZ_ARA_BUTTON = By.xpath("//a[normalize-space(text())='Cihaz ara']");
     public static final By GELISMIS_SIRALAMA_DROPDOWN = By.id("advancedSorting");
@@ -22,8 +23,19 @@ public class YepyPage extends BasePage{
     public static final By EN_YUKSEK_FIYAT_INPUT = By.cssSelector("input[name='price_max']");
     public static final By EN_DUSUK_FIYAT_INPUT = By.cssSelector("input[name='price_min']");
     public static final By ARA_BUTTON = By.xpath("//button[normalize-space(text())='Ara']");
-    
 
+    public static final By KOZMETIK_DURUM_IYI_CHECKBOX = By.xpath("//div[@class='form-check'][.//label[normalize-space(text())='İyi']]//input[@type='checkbox']");
+    public static final By DEPOLAMA_256GB_CHECKBOX = By.xpath(
+            "//div[@class='form-check'][.//label[normalize-space(text())='128 GB']]//input[@type='checkbox']"
+    );
+    public static final By RENK_ALTIN_CHECKBOX = By.xpath("//div[@class='form-check'][.//label[normalize-space(text())='Altın']]//input[@type='checkbox']");
+
+    // First product link - excludes banner items, only targets real product links with detail page URLs
+    public static final By FIRST_PRODUCT_LINK = By.xpath(
+            "//div[contains(@class, 'refurbishment-content')]/ul/li[1]//a[contains(@class, 'refurbishment-classified-url')]"
+    );
+    public static final By IYI_DURUMDA = By.xpath("//h3[@data-access='detail' and normalize-space(text())='İyi durumda']");
+    public static final By ALTIN_RENGI = By.xpath("//span[@data-access='selected-color' and normalize-space(text())='Altın']");
     /**
      * Constructor initializes PageFactory and WebDriverWait.
      *
@@ -74,16 +86,6 @@ public class YepyPage extends BasePage{
         return isValid;
     }
 
-    public boolean isFirstPriceWithinMaxLimit(double maxPrice) {
-        return isFirstPriceWithinLimit(true, maxPrice);
-    }
-
-    /**
-     * Convenience method: Verifies first price (after ascending sort) is >= minPrice.
-     */
-    public boolean isFirstPriceWithinMinLimit(double minPrice) {
-        return isFirstPriceWithinLimit(false, minPrice);
-    }
 
     public List<Double> getAllPricesAsDoubles() {
         List<WebElement> priceElements = getAllPriceElements();
@@ -196,5 +198,69 @@ public class YepyPage extends BasePage{
         log.info("Waiting for URL to contain: {}", urlFragment);
         waitForUrlContains(urlFragment);
         log.info("✓ Price min filter applied - URL contains {}", urlFragment);
+    }
+
+    // ========== Business Logic Methods (Page Object Pattern) ==========
+
+    /**
+     * Applies price sorting (ascending or descending) on the page.
+     * This is a page-level operation, so it belongs in the Page Object.
+     *
+     * @param ascending true for ascending, false for descending
+     */
+    public void applyPriceSorting(boolean ascending) {
+        log.info("Applying price sorting: {}", ascending ? "ascending" : "descending");
+
+        clickElement(GELISMIS_SIRALAMA_DROPDOWN, "Gelişmiş Sıralama");
+
+        if (ascending) {
+            clickElement(FIYAT_DUSUKTEN_YUKSEGE_BUTTON, "Fiyat: Düşükten yükseğe");
+            waitForUrlContains("sorting=price_asc");
+        } else {
+            clickElement(FIYAT_YUKSEKTEN_DUSUGE_BUTTON, "Fiyat: Yüksekten düşüğe");
+            waitForUrlContains("sorting=price_desc");
+        }
+
+        log.info("✓ Price sorting applied: {}", ascending ? "ascending" : "descending");
+    }
+
+    /**
+     * Applies a price filter (min or max) and waits for URL update.
+     * This is a page-level operation, so it belongs in the Page Object.
+     *
+     * @param price The price value to filter by
+     * @param isMax true for maximum price, false for minimum price
+     */
+    public void applyPriceFilter(int price, boolean isMax) {
+        log.info("Applying {} price filter: {}", isMax ? "maximum" : "minimum", price);
+
+        if (isMax) {
+            setMaxPrice(price);
+        } else {
+            setMinPrice(price);
+        }
+
+        clickSearchButton();
+
+        if (isMax) {
+            waitForPriceMaxInUrl(price);
+        } else {
+            waitForPriceMinInUrl(price);
+        }
+
+        log.info("✓ Price filter applied: {} = {}", isMax ? "max" : "min", price);
+    }
+
+    /**
+     * Clicks a checkbox by its locator.
+     * Generic method for any checkbox on the page.
+     *
+     * @param checkboxLocator The By locator for the checkbox
+     * @param checkboxName    Descriptive name for logging
+     */
+    public void clickCheckbox(By checkboxLocator, String checkboxName) {
+        log.info("Clicking checkbox: {}", checkboxName);
+        clickElement(checkboxLocator, checkboxName);
+        log.info("✓ Checkbox clicked: {}", checkboxName);
     }
 }

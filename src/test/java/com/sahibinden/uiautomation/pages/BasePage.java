@@ -214,7 +214,7 @@ public abstract class BasePage {
         log.debug("Scrolling to element: {}", element);
         executeScript("arguments[0].scrollIntoView(true);", element);
     }
-    
+
     /**
      * Creates a custom wait with specified timeout.
      *
