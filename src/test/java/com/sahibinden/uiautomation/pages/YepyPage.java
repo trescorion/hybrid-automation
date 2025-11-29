@@ -20,6 +20,9 @@ public class YepyPage extends BasePage{
             "//div[contains(@class, 'searchResultsPriceValue')]//span[contains(@class, 'classified-price-container') or text()]"
     );
     public static final By EN_YUKSEK_FIYAT_INPUT = By.cssSelector("input[name='price_max']");
+    public static final By EN_DUSUK_FIYAT_INPUT = By.cssSelector("input[name='price_min']");
+    public static final By ARA_BUTTON = By.xpath("//button[normalize-space(text())='Ara']");
+    
 
     /**
      * Constructor initializes PageFactory and WebDriverWait.
@@ -37,6 +40,49 @@ public class YepyPage extends BasePage{
         List<WebElement> priceElements = driver.findElements(ALL_PRICE_ELEMENTS);
         log.info("Found {} price elements", priceElements.size());
         return priceElements;
+    }
+
+    public double getFirstPrice() {
+        List<Double> prices = getAllPricesAsDoubles();
+
+        if (prices.isEmpty()) {
+            log.warn("No prices found on the page");
+            return 0.0;
+        }
+
+        double firstPrice = prices.get(0);
+        log.info("First price in list: {}", firstPrice);
+        return firstPrice;
+    }
+
+    public boolean isFirstPriceWithinLimit(boolean isMax, double limit) {
+        double firstPrice = getFirstPrice();
+        String limitType = isMax ? "maximum" : "minimum";
+
+        // For descending sort (isMax=true): first price should be <= maxPrice
+        // For ascending sort (isMax=false): first price should be >= minPrice
+        boolean isValid = isMax
+                ? firstPrice <= limit
+                : firstPrice >= limit;
+
+        if (isValid) {
+            log.info("✓ First price {} is within {} limit {}", firstPrice, limitType, limit);
+        } else {
+            log.error("❌ First price {} exceeds {} limit {}", firstPrice, limitType, limit);
+        }
+
+        return isValid;
+    }
+
+    public boolean isFirstPriceWithinMaxLimit(double maxPrice) {
+        return isFirstPriceWithinLimit(true, maxPrice);
+    }
+
+    /**
+     * Convenience method: Verifies first price (after ascending sort) is >= minPrice.
+     */
+    public boolean isFirstPriceWithinMinLimit(double minPrice) {
+        return isFirstPriceWithinLimit(false, minPrice);
     }
 
     public List<Double> getAllPricesAsDoubles() {
@@ -115,5 +161,40 @@ public class YepyPage extends BasePage{
     }
 
 
+    public void setMaxPrice(int maxPrice) {
+        log.info("Setting maximum price filter to: {}", maxPrice);
+        WebElement priceInput = waitForVisibility(EN_YUKSEK_FIYAT_INPUT);
+        priceInput.clear();
+        priceInput.sendKeys(String.valueOf(maxPrice));
+        log.info("✓ Maximum price filter set to: {}", maxPrice);
+    }
 
+    public int setMinPrice(int minPrice) {
+        log.info("Setting minimum price filter to: {}", minPrice);
+        WebElement priceInput = waitForVisibility(EN_DUSUK_FIYAT_INPUT);
+        priceInput.clear();
+        priceInput.sendKeys(String.valueOf(minPrice));
+        log.info("✓ Minimum price filter set to: {}", minPrice);
+        return minPrice;
+    }
+
+    public void clickSearchButton() {
+        log.info("Clicking search button to apply filters...");
+        clickElement(ARA_BUTTON, "Ara Button");
+        log.info("✓ Search button clicked");
+    }
+
+    public void waitForPriceMaxInUrl(int maxPrice) {
+        String urlFragment = "price_max=" + maxPrice;
+        log.info("Waiting for URL to contain: {}", urlFragment);
+        waitForUrlContains(urlFragment);
+        log.info("✓ Price max filter applied - URL contains {}", urlFragment);
+    }
+
+    public void waitForPriceMinInUrl(int minPrice) {
+        String urlFragment = "price_min=" + minPrice;
+        log.info("Waiting for URL to contain: {}", urlFragment);
+        waitForUrlContains(urlFragment);
+        log.info("✓ Price min filter applied - URL contains {}", urlFragment);
+    }
 }
