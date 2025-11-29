@@ -7,7 +7,7 @@ spring:
 # Selenium Configuration
 selenium:
   grid:
-    enabled: false  # Set to true to use Selenium Grid/Selenoid
+    enabled: true  # Set to true to use Selenium Grid/Selenoid
     hub-url: http://localhost:4444/wd/hub  # Selenium Grid/Selenoid URL
   
   browser:
