@@ -24,8 +24,8 @@ Selenium Grid: http://localhost:4444## Test Çalıştırma
 ### Lokal (Grid olmadan)
 ./gradlew clean test
 ./gradlew allureReport
-./gradlew allureServe  # Raporu görüntüle### Grid ilesh
-# application.yml'de selenium.grid.enabled: true olmalı
+./gradlew allureServe 
+ (application.yml'de selenium.grid.enabled: true olmalı)
 ./gradlew clean test### Jenkins ile
 1. `http://localhost:8080` → `ui-automation-tests` job'ını çalıştır
 2. Build sonrası "Allure Test Report" linkinden raporu görüntüle
