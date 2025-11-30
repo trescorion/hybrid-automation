@@ -1,0 +1,27 @@
+jenkins:
+  systemMessage: "UI Automation Test Pipeline - Auto Configured"
+  
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "${JENKINS_ADMIN_PASSWORD:-admin123}"
+  
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  location:
+    adminAddress: "admin@example.com"
+    url: "http://localhost:8080/"
+  
+  # HTML Publisher için CSP (Content Security Policy) ayarları
+  # Allure raporlarının JavaScript'lerinin çalışması için gerekli
+  htmlpublisher:
+    publishedReportDirectories: []
+  
+  # Script Security - Allure raporlarının çalışması için
+  scriptSecurity:
+    approvedSignatures: []
