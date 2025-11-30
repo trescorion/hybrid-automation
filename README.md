@@ -8,13 +8,13 @@ Selenium Grid ve Jenkins ile paralel UI test otomasyonu projesi.
 - Java 17+
 - Git
 
-## Kurulum
+# Kurulum
 
-# Projeyi klonla
+1) Projeyi klonla
 git clone <repo-url>
 cd ui-automation
 
-# Docker servislerini başlat (Selenium Grid + Jenkins)
+2) Docker servislerini başlat (Selenium Grid + Jenkins)
 docker-compose up -d
 
 Jenkins hazır olana kadar bekle (~30 saniye)
