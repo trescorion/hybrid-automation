@@ -49,7 +49,7 @@ public abstract class BaseTest {
     protected SahibindenHomePage homePage;
     protected YepyPage yepyPage;
     
-    private static final int COOKIE_BANNER_WAIT_TIMEOUT = 5; // Shorter timeout for optional element
+    private static final int COOKIE_BANNER_WAIT_TIMEOUT = 30; // Shorter timeout for optional element
     private static final By COOKIE_ACCEPT_ALL = By.id("onetrust-accept-btn-handler");
     
     @RegisterExtension

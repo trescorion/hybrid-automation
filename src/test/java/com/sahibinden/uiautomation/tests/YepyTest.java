@@ -17,7 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Epic("Sahibinden UI Otomasyon")
 @Feature("Yepy - Yenilenmiş Telefonlar")
 @DisplayName("Yepy Kategori Testleri")
-@Execution(ExecutionMode.CONCURRENT)
 public class YepyTest extends BaseTest {
 
     @Test
