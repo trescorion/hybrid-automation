@@ -51,7 +51,7 @@ public class YepyTest extends BaseTest {
 
         // Apply maximum price filter
         yepyPage.applyPriceFilter(9000, true);
-        
+
         // Sort by price descending and verify
         yepyPage.applyPriceSorting(false);
         verifyFirstPriceIsWithinLimit(9000, true);
@@ -64,7 +64,7 @@ public class YepyTest extends BaseTest {
 
         // Apply minimum price filter
         yepyPage.applyPriceFilter(5000, false);
-        
+
         // Sort by price ascending and verify
         yepyPage.applyPriceSorting(true);
         verifyFirstPriceIsWithinLimit(5000, false);
@@ -148,7 +148,7 @@ public class YepyTest extends BaseTest {
                 .as("Prices should be sorted in %s order", ascending ? "ascending" : "descending")
                 .isTrue();
 
-        log.info("✓ Verified {} prices are sorted in {} order", prices.size(), 
+        log.info("✓ Verified {} prices are sorted in {} order", prices.size(),
                 ascending ? "ascending" : "descending");
     }
 

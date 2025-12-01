@@ -9,9 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
-import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.RegisterExtension;
-import org.junit.jupiter.api.extension.TestWatcher;
+import org.junit.jupiter.api.extension.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -52,23 +50,49 @@ public abstract class BaseTest {
     private static final int COOKIE_BANNER_WAIT_TIMEOUT = 30; // Shorter timeout for optional element
     private static final By COOKIE_ACCEPT_ALL = By.id("onetrust-accept-btn-handler");
     
+    // ThreadLocal to store WebDriver for screenshot capture on failure
+    // This is thread-safe and works with parallel test execution
+    private static final ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
+    
+    /**
+     * Extension to automatically capture screenshots on test failure.
+     * This runs BEFORE @AfterEach, so the WebDriver is still valid.
+     * Based on Allure documentation: https://docs.qameta.io/allure/
+     */
     @RegisterExtension
-    final TestWatcher testWatcher = new TestWatcher() {
+    final TestExecutionExceptionHandler screenshotHandler = new TestExecutionExceptionHandler() {
         @Override
-        public void testFailed(ExtensionContext context, Throwable cause) {
-            captureScreenshot(context.getDisplayName());
+        public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
+            // Get WebDriver from ThreadLocal
+            WebDriver webDriver = webDriverThreadLocal.get();
+            
+            if (webDriver != null) {
+                String testName = context.getDisplayName();
+                String attachmentName = String.format("Screenshot on failure (%s)", 
+                    throwable.getClass().getSimpleName());
+                
+                log.info("Test failed: {} - Capturing screenshot", testName);
+                attachPageScreenshot(webDriver, attachmentName);
+            } else {
+                log.warn("WebDriver not found in ThreadLocal, cannot capture screenshot");
+            }
+            
+            // Re-throw the exception so test is marked as failed
+            throw throwable;
         }
     };
-
-    public void captureScreenshot(String name) {
-        if (driver != null) {
-            log.info("Capturing screenshot for failed test: {}", name);
-            try {
-                byte[] content = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-                Allure.addAttachment(name, new ByteArrayInputStream(content));
-            } catch (Exception e) {
-                log.error("Failed to capture screenshot", e);
-            }
+    
+    /**
+     * Attaches a page screenshot to Allure report.
+     * Based on Allure documentation: https://docs.qameta.io/allure/
+     */
+    private void attachPageScreenshot(WebDriver webDriver, String name) {
+        try {
+            byte[] screenshotBytes = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BYTES);
+            Allure.addAttachment(name, "image/png", new ByteArrayInputStream(screenshotBytes), ".png");
+            log.info("✓ Screenshot attached to Allure: {}", name);
+        } catch (Exception e) {
+            log.error("Failed to capture and attach screenshot", e);
         }
     }
 
@@ -79,6 +103,11 @@ public abstract class BaseTest {
         log.info("╚════════════════════════════════════════════════════════════╝");
         
         driver = webDriverFactory.createDriver();
+        
+        // Store WebDriver in ThreadLocal for screenshot handler
+        // This allows TestExecutionExceptionHandler to access it when test fails
+        webDriverThreadLocal.set(driver);
+        
         homePage = new SahibindenHomePage(driver, testConfig.getBaseUrl());
         yepyPage = new YepyPage(driver);
     }
@@ -97,6 +126,9 @@ public abstract class BaseTest {
                 log.debug("WebDriver closed successfully");
             } catch (Exception e) {
                 log.error("Error closing WebDriver", e);
+            } finally {
+                // Remove WebDriver from ThreadLocal
+                webDriverThreadLocal.remove();
             }
         }
     }
