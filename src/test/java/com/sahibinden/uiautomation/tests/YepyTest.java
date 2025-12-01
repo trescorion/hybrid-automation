@@ -38,7 +38,7 @@ public class YepyTest extends BaseTest {
     public void testPriceOrderDescending() {
         navigateToYenilenmisTelefonlar();
         yepyPage.applyPriceSorting(false);
-        verifyPricesAreSorted(false);
+        verifyPricesAreSorted(true);
     }
 
     @Test

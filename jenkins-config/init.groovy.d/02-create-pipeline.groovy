@@ -22,27 +22,25 @@ pipeline {
                 }
             }
         }
-        
-        stage('Allure Report') {
-            steps {
-                dir('/workspace/ui-automation') {
-                    sh './gradlew allureReport'
-                    publishHTML([
-                        reportDir: 'build/reports/allure-report/allureReport',
-                        reportFiles: 'index.html',
-                        reportName: 'Allure Test Report',
-                        keepAll: true,
-                        alwaysLinkToLastBuild: true,
-                        allowMissing: false
-                    ])
-                }
-            }
-        }
     }
     
     post {
         always {
             dir('/workspace/ui-automation') {
+                // Raporu her zaman oluştur (fail olsa bile)
+                sh './gradlew allureReport'
+                
+                // Raporu her zaman publish et (fail olsa bile)
+                publishHTML([
+                    reportDir: 'build/reports/allure-report/allureReport',
+                    reportFiles: 'index.html',
+                    reportName: 'Allure Test Report',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true,
+                    allowMissing: false
+                ])
+                
+                // Artifacts'ları arşivle
                 archiveArtifacts artifacts: 'build/allure-results/**/*', fingerprint: true, allowEmptyArchive: true
             }
         }
