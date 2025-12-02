@@ -17,10 +17,11 @@ cd ui-automation
 2) Docker servislerini başlat (Selenium Grid + Jenkins)
 docker-compose up -d
 
-Jenkins hazır olana kadar bekle (~30 saniye)
-Jenkins: http://localhost:8080 (admin/admin123)
-Selenium Grid: http://localhost:4444## Test Çalıştırma
+3) Jenkins hazır olana kadar bekle (~30 saniye)
+4) Jenkins: http://localhost:8080 
+Selenium Grid: http://localhost:4444
 
+## Test Çalıştırma 
 ### Lokal (Grid olmadan)
 ./gradlew clean test
 ./gradlew allureReport
