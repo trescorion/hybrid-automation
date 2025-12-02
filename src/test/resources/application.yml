@@ -12,7 +12,7 @@ selenium:
   
   browser:
     type: chrome  # chrome, firefox, edge
-    headless: true  # Set to true for headless mode
+    headless: false  # Set to true for headless mode
     user-agent: "SahibindenOtomasyon/da1f7dbf5c7842819cb75d6a25362611"
     
   timeouts:
