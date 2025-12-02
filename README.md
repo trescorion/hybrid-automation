@@ -41,3 +41,5 @@ Selenium Grid: http://localhost:4444
 
 - **Allure**: `build/reports/allure-report/allureReport/index.html`
 - Jenkins'te otomatik olarak publish edilir
+
+
